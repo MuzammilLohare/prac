@@ -32,10 +32,10 @@ pipeline {
         steps {
           withKubeConfig([credentialsId: 'kubeconfig']){
             sh 'pwd'
-            sh 'cp -R heml/* .'
+            sh 'cp -R helm/* .'
             sh 'ls -lrth'
             sh 'pwd'
-            sh '/usr/local/bin/helm upgrade --install petclinic-app petclinic --set image.repositry=muzammillohare/petclinic --set image.tag=$(BUILD_NUMBER)'
+            sh '/usr/local/bin/helm upgrade --install petclinic-app petclinic --set image.repository=muzammillohare/petclinic --set image.tag=$(BUILD_NUMBER)'
           }  
         }
       }
